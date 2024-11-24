@@ -1,3 +1,5 @@
+import { Button } from "antd";
+
 import useCounterStore from "@/store/counter";
 
 const Home = () => {
@@ -12,6 +14,8 @@ const Home = () => {
     <div>
       <div>Home Page</div>
       <button onClick={handleClick}>counter: {counter}</button>
+      <br />
+      <Button type="primary">Primary</Button>
     </div>
   );
 };
