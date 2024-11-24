@@ -18,6 +18,9 @@ importers:
       '@eslint/js':
         specifier: ^9.13.0
         version: 9.15.0
+      '@types/node':
+        specifier: ^22.9.3
+        version: 22.9.3
       '@types/react':
         specifier: ^18.3.12
         version: 18.3.12
@@ -1226,7 +1229,6 @@ snapshots:
   '@types/node@22.9.3':
     dependencies:
       undici-types: 6.19.8
-    optional: true
 
   '@types/prop-types@15.7.13': {}
 
@@ -1749,8 +1751,7 @@ snapshots:
 
   typescript@5.6.3: {}
 
-  undici-types@6.19.8:
-    optional: true
+  undici-types@6.19.8: {}
 
   uri-js@4.4.1:
     dependencies:
