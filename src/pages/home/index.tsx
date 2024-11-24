@@ -1,5 +1,19 @@
+import useCounterStore from "@/store/counter";
+
 const Home = () => {
-  return <div>Home Page</div>;
+
+  const {counter,increase}=useCounterStore();
+
+  const handleClick =()=>{
+    increase(1)
+  }
+
+  return (
+    <div>
+      <div>Home Page</div>
+      <button onClick={handleClick}>counter: {counter}</button>
+    </div>
+  );
 };
 
 export default Home;
