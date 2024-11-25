@@ -6,13 +6,28 @@ import UnoCSS from 'unocss/vite';
 import { browserslistToTargets } from 'lightningcss';
 import browserslist from 'browserslist';
 import postcssNesting from 'postcss-nesting';
+import viteCompression from 'vite-plugin-compression';
+import { visualizer } from 'rollup-plugin-visualizer';
 
 // https://vite.dev/config/
 export default ({ mode }: ConfigEnv): UserConfig => {
   const envConfig = loadEnv(mode, process.cwd());
 
   return defineConfig({
-    plugins: [react(), UnoCSS(), svgr()],
+    plugins: [
+      react(),
+      UnoCSS(),
+      svgr(),
+      // gz包
+      {
+        ...viteCompression(),
+        apply: 'build',
+      },
+      // 分析生成包的大小
+      visualizer({
+        open: true,
+      }),
+    ],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'src'),
@@ -40,6 +55,18 @@ export default ({ mode }: ConfigEnv): UserConfig => {
     build: {
       cssCodeSplit: true,
       cssMinify: 'lightningcss',
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            react: ['react', 'react-dom', 'react-router-dom'],
+            lib: ['zustand'],
+            antd: ['antd'],
+          },
+          chunkFileNames: 'static/js/[name]-[hash].js',
+          entryFileNames: 'static/js/[name]-[hash].js',
+          assetFileNames: 'static/[ext]/[name]-[hash].[ext]',
+        },
+      },
     },
   });
 };
