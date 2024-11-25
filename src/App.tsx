@@ -1,5 +1,5 @@
 import { RouterProvider } from 'react-router-dom';
-import {ConfigProvider} from 'antd';
+import { ConfigProvider } from 'antd';
 import zhCN from 'antd/locale/zh_CN';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
@@ -12,9 +12,8 @@ import 'antd/dist/reset.css';
 dayjs.locale('zh-cn');
 
 const App = () => {
+  const { primaryColor } = useGloabalState();
 
-  const { primaryColor }=useGloabalState();
-  
   return (
     <ConfigProvider
       locale={zhCN}
@@ -29,4 +28,4 @@ const App = () => {
   );
 };
 
-export default App
+export default App;

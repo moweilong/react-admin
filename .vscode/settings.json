@@ -1,0 +1,24 @@
+{
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "files.autoSave": "onFocusChange",
+  "eslint.codeActionsOnSave.rules": null,
+  "editor.tabSize": 2,
+  "editor.fontSize": 14,
+  "editor.formatOnSave": true,
+  "eslint.validate": ["javascript", "typescript", "vue", "typescriptreact", "javascriptreact"],
+  "stylelint.validate": ["css", "less", "scss", "vue"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always",
+    "source.fixAll.eslint": "always",
+    "source.fixAll.stylelint": "always"
+  },
+  "files.exclude": {
+    "**/.git": false
+  },
+  "prettier.useEditorConfig": false,
+  "eslint.useFlatConfig": true,
+  "eslint.workingDirectories": ["eslint.config.js"],
+  "stylelint.packageManager": "pnpm",
+  "stylelint.config": {}
+}
