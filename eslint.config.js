@@ -6,7 +6,7 @@ import { FlatCompat } from '@eslint/eslintrc';
 import pluginJs from '@eslint/js';
 // import pluginReactConfig from 'eslint-plugin-react/configs/recommended.js';
 import pluginEslintImport from 'eslint-plugin-import';
-import pluginEslintPrettier from 'eslint-plugin-prettier/recommended';
+// import pluginEslintPrettier from 'eslint-plugin-prettier/recommended';
 import pluginReactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
 import tsEslint from 'typescript-eslint';
@@ -32,6 +32,7 @@ export default [
           jsx: true,
         },
       },
+      // 全局变量
       globals: { ...globals.node, ...globals.es2022, ...globals.browser },
     },
     settings: {
@@ -46,7 +47,7 @@ export default [
   },
   pluginJs.configs.recommended,
   ...tsEslint.configs.recommended,
-  pluginEslintPrettier,
+  // pluginEslintPrettier, // 更新这里用prettier只做格式化不加入格式检查
   // ...fixupConfigRules(pluginReactConfig),
   // 因为v9变化较大，为了兼容之前的 config，官方提供了转换整个旧的 config 的方法
   ...fixupConfigRules(
@@ -60,6 +61,11 @@ export default [
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       '@typescript-eslint/no-explicit-any': 'error',
       'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+      // 引入type时使用 type 关键字如： import { type xx } from 'xxx'
+      '@typescript-eslint/no-import-type-side-effects': 'error',
+      '@typescript-eslint/consistent-type-imports': 'error',
+      // 引入type另起一行而不是跟现有的import一起使用如： import type { xx } from 'xx'
+      'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
       //import导入顺序规则
       'import/order': [
         'error',

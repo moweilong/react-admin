@@ -25,6 +25,7 @@
     ]
   },
   "dependencies": {
+    "ahooks": "^3.8.1",
     "antd": "^5.22.2",
     "axios": "^1.7.7",
     "dayjs": "^1.11.13",
@@ -36,6 +37,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.6.0",
     "@commitlint/config-conventional": "^19.6.0",
+    "@eslint/compat": "^1.2.3",
     "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^9.15.0",
     "@types/node": "^22.9.3",
@@ -55,6 +57,7 @@
     "stylelint-config-standard": "^36.0.1",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.15.0",
+    "unocss": "^0.64.1",
     "vite": "^5.4.10"
   }
 }

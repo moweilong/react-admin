@@ -1,26 +1,26 @@
-import path from 'node:path'
-import { ConfigEnv,UserConfig,defineConfig, loadEnv } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+import path from 'node:path';
+import { ConfigEnv, UserConfig, defineConfig, loadEnv } from 'vite';
+import react from '@vitejs/plugin-react-swc';
+import UnoCSS from 'unocss/vite';
 
 // https://vite.dev/config/
-export default ({mode}:ConfigEnv): UserConfig=>{
-  
-  const envConfig = loadEnv(mode,process.cwd());
+export default ({ mode }: ConfigEnv): UserConfig => {
+  const envConfig = loadEnv(mode, process.cwd());
 
   return defineConfig({
-    plugins: [react()],
+    plugins: [react(), UnoCSS()],
     resolve: {
       alias: {
-        '@': path.resolve(__dirname,'src'),
+        '@': path.resolve(__dirname, 'src'),
       },
     },
     base: envConfig.VITE_PUBLIC_PATH,
-    server:{
+    server: {
       port: Number(envConfig.VITE_APP_PORT),
-      proxy:{
-        '/api':{
+      proxy: {
+        '/api': {
           target: 'http://localhost:38080',
-          changeOrigin:true,
+          changeOrigin: true,
         },
       },
     },
