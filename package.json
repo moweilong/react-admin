@@ -7,7 +7,22 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "**/src/*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ],
+    "*.{js,jsx,,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ],
+    "*.css": [
+      "stylelint --fix"
+    ]
   },
   "dependencies": {
     "antd": "^5.22.2",
@@ -19,6 +34,8 @@
     "zustand": "^5.0.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
     "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^9.15.0",
     "@types/node": "^22.9.3",
@@ -31,6 +48,8 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
     "globals": "^15.12.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
     "stylelint": "^16.10.0",
     "stylelint-config-standard": "^36.0.1",
