@@ -1,6 +1,7 @@
 import path from 'node:path';
 import { ConfigEnv, UserConfig, defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react-swc';
+import svgr from 'vite-plugin-svgr';
 import UnoCSS from 'unocss/vite';
 import { browserslistToTargets } from 'lightningcss';
 import browserslist from 'browserslist';
@@ -11,7 +12,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
   const envConfig = loadEnv(mode, process.cwd());
 
   return defineConfig({
-    plugins: [react(), UnoCSS()],
+    plugins: [react(), UnoCSS(), svgr()],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'src'),
