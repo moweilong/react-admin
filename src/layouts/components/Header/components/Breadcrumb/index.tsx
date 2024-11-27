@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 
 import { Breadcrumb } from 'antd';
-import { ItemType } from 'antd/lib/breadcrumb/Breadcrumb';
+
+import type { ItemType } from 'antd/lib/breadcrumb/Breadcrumb';
 
 import useMenuStore from '@/store/menu';
 

@@ -17,7 +17,10 @@ const AppHeader = () => {
   const { token } = useToken();
   const { colorBgContainer } = token;
   return (
-    <Header style={{ padding: 0, background: colorBgContainer }} className="flex justify-between items-center">
+    <Header
+      style={{ padding: 0, background: colorBgContainer }}
+      className="flex justify-between items-center"
+    >
       <div className={styles['header-left']}>
         <Button
           type="text"

@@ -21,7 +21,9 @@ function useMenu() {
           label: meta.title as string,
           // key: meta.key as string,
           // 如果是菜单用父菜单的key加当前路由的path组成，这样既能是唯一的也是当前菜单的完整路由
-          key: parentRoute?.meta?.menu ? ((parentMenu?.key + '/' + route.path) as string) : (route.path as string),
+          key: parentRoute?.meta?.menu
+            ? ((parentMenu?.key + '/' + route.path) as string)
+            : (route.path as string),
           icon: meta.icon ?? <AppstoreOutlined />,
         };
       }

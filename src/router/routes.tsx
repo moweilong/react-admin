@@ -14,7 +14,9 @@ const routeArray = getRoutes();
 const routes: IRouteObject[] = [
   {
     path: '/login',
-    element: <LazyLoadComponent Component={lazy(() => import('@/pages/login'))} />,
+    element: (
+      <LazyLoadComponent Component={lazy(() => import('@/pages/login'))} />
+    ),
     meta: {
       menu: false,
     },

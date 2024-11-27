@@ -64,6 +64,12 @@ export default [
       ],
       // 类型可以定义为 any
       '@typescript-eslint/no-explicit-any': 'off',
+      'react/no-unknown-property': [
+        'error',
+        {
+          ignore: ['css'],
+        },
+      ],
       'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
       // 引入type时使用 type 关键字如： import { type xx } from 'xxx'
       '@typescript-eslint/no-import-type-side-effects': 'error',

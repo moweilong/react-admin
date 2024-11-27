@@ -21,7 +21,11 @@ const nestedMenuRouter: IRouteObject[] = [
     children: [
       {
         path: 'menu1',
-        element: <LazyLoadComponent Component={lazy(() => import('@/pages/nestedMenu/menu1'))} />,
+        element: (
+          <LazyLoadComponent
+            Component={lazy(() => import('@/pages/nestedMenu/menu1'))}
+          />
+        ),
         meta: {
           auth: true,
           menu: true,
@@ -42,7 +46,13 @@ const nestedMenuRouter: IRouteObject[] = [
           {
             path: 'menu2-1',
             index: true,
-            element: <LazyLoadComponent Component={lazy(() => import('@/pages/nestedMenu/menu2/menu2-1'))} />,
+            element: (
+              <LazyLoadComponent
+                Component={lazy(
+                  () => import('@/pages/nestedMenu/menu2/menu2-1'),
+                )}
+              />
+            ),
             meta: {
               auth: true,
               menu: true,
@@ -65,7 +75,13 @@ const nestedMenuRouter: IRouteObject[] = [
           {
             path: 'menu3-1',
             index: true,
-            element: <LazyLoadComponent Component={lazy(() => import('@/pages/nestedMenu/menu3/menu3-1'))} />,
+            element: (
+              <LazyLoadComponent
+                Component={lazy(
+                  () => import('@/pages/nestedMenu/menu3/menu3-1'),
+                )}
+              />
+            ),
             meta: {
               auth: true,
               menu: true,
@@ -81,12 +97,19 @@ const nestedMenuRouter: IRouteObject[] = [
               title: '菜单3-2',
               key: 'nestedMenu/menu3/menu3-2',
             },
-            element: <RedirectRouteView to="/nestedMenu/menu3/menu3-2/menu3-2-1" />,
+            element: (
+              <RedirectRouteView to="/nestedMenu/menu3/menu3-2/menu3-2-1" />
+            ),
             children: [
               {
                 path: 'menu3-2-1',
                 element: (
-                  <LazyLoadComponent Component={lazy(() => import('@/pages/nestedMenu/menu3/menu3-2/menu3-2-1'))} />
+                  <LazyLoadComponent
+                    Component={lazy(
+                      () =>
+                        import('@/pages/nestedMenu/menu3/menu3-2/menu3-2-1'),
+                    )}
+                  />
                 ),
                 meta: {
                   auth: true,
