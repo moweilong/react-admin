@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 import { Layout, Menu } from 'antd';
-import { MenuProps } from 'antd/lib';
 
 import AppLogo from '@/components/AppLogo';
 
+import type { LevelKeysProps } from '@/layouts/helper/utils';
+import type { MenuProps } from 'antd/lib';
+
 import useMenu from '@/layouts/helper/useMenu';
-import { generateBreadcrumList, getLevelKeys, LevelKeysProps } from '@/layouts/helper/utils';
+import { generateBreadcrumList, getLevelKeys } from '@/layouts/helper/utils';
 import useMenuStore from '@/store/menu';
 
 const { Sider } = Layout;
@@ -32,14 +34,20 @@ const AppSider = () => {
     }, '');
     setOpenKeys(keys);
     // 根据pathname生成面包屑list
-    const breadcrumbList = generateBreadcrumList(location.pathname, menuItems, handleItemClick);
+    const breadcrumbList = generateBreadcrumList(
+      location.pathname,
+      menuItems,
+      handleItemClick,
+    );
     // 将面包屑存入store中;
     setBreadcrumbList(breadcrumbList);
   }, [location.pathname]);
   const levelKeys = getLevelKeys(menuItems as LevelKeysProps[]);
   // 菜单展开时关闭其他已经展开的菜单
   const onOpenChange: MenuProps['onOpenChange'] = (allOpenKeys) => {
-    const currentOpenKey = allOpenKeys.find((key) => openKeys.indexOf(key) === -1);
+    const currentOpenKey = allOpenKeys.find(
+      (key) => openKeys.indexOf(key) === -1,
+    );
     // open
     if (currentOpenKey !== undefined) {
       const repeatIndex = allOpenKeys

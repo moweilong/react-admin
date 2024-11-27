@@ -58,8 +58,12 @@ export default [
   ),
   {
     rules: {
-      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
-      '@typescript-eslint/no-explicit-any': 'error',
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true },
+      ],
+      // 类型可以定义为 any
+      '@typescript-eslint/no-explicit-any': 'off',
       'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
       // 引入type时使用 type 关键字如： import { type xx } from 'xxx'
       '@typescript-eslint/no-import-type-side-effects': 'error',
@@ -71,7 +75,16 @@ export default [
         'error',
         {
           //按照分组顺序进行排序
-          groups: ['builtin', 'external', 'parent', 'sibling', 'index', 'internal', 'object', 'type'],
+          groups: [
+            'builtin',
+            'external',
+            'parent',
+            'sibling',
+            'index',
+            'internal',
+            'object',
+            'type',
+          ],
           //通过路径自定义分组
           pathGroups: [
             {

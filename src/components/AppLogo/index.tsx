@@ -9,7 +9,13 @@ type AppLogoProps = {
   showTitle?: boolean;
   style?: React.CSSProperties;
 };
-const AppLogo = ({ animate, style, className = '', title = 'React Admin', showTitle = true }: AppLogoProps) => {
+const AppLogo = ({
+  animate,
+  style,
+  className = '',
+  title = 'React Admin',
+  showTitle = true,
+}: AppLogoProps) => {
   const { goHome } = useGoto();
   return (
     <div
@@ -17,8 +23,14 @@ const AppLogo = ({ animate, style, className = '', title = 'React Admin', showTi
       style={style}
       onClick={goHome}
     >
-      <img src="/logo.svg" alt="logo" className={animate ? styles['animate'] : ''} />
-      <h1 className={`text-center ml-[10px] text-[16px] ${showTitle ? 'block opacity-100' : 'hidden opacity-0'}`}>
+      <img
+        src="/logo.svg"
+        alt="logo"
+        className={animate ? styles['animate'] : ''}
+      />
+      <h1
+        className={`text-center ml-[10px] text-[16px] ${showTitle ? 'block opacity-100' : 'hidden opacity-0'}`}
+      >
         {title}
       </h1>
     </div>

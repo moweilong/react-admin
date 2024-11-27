@@ -1,4 +1,4 @@
-import { IRouteObject } from '@/types/custom-types';
+import type { IRouteObject } from '@/types/custom-types';
 
 export function getRoutes() {
   const routes: IRouteObject[] = [];
