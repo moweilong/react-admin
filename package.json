@@ -32,6 +32,8 @@
   "dependencies": {
     "@ant-design/icons": "^5.5.1",
     "@emotion/react": "^11.13.5",
+    "@zxcvbn-ts/core": "^3.0.4",
+    "@zxcvbn-ts/language-common": "^3.0.4",
     "ahooks": "^3.8.1",
     "antd": "^5.22.2",
     "axios": "^1.7.7",
